@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Today I fixed some errors regarding react and finally made it run with npm
         </p>
         <a
           className="App-link"
