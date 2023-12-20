@@ -1,38 +1,44 @@
 import './App.css';
-
 import React from 'react';
 
-function Flashcard({ question, answer }) {
+const HomePage = () => {
   return (
-    <div className="flashcard">
-      <h2>Question:</h2>
-      <p>{question}</p>
-      <h2>Answer:</h2>
-      <p>{answer}</p>
-    </div>
-  );
-}
-
-function App() {
-  const flashcards = [
-    { question: 'Question1', answer: 'Answer1' },
-    { question: 'Question2', answer: 'Answer2' },
-    // Add more flashcards as needed
-  ];
-
-  return (
-    <div className="App">
+    <div>
       <h1>Flashcards App</h1>
-      {flashcards.map((flashcard, index) => (
-        <Flashcard
-          key={index}
-          question={flashcard.question}
-          answer={flashcard.answer}
-        />
-      ))}
+      <div>
+        <h2>General Introduction</h2>
+        <p>some info</p>
+      </div>
+      <div>
+        <h2>List of Projects</h2>
+        <ul>
+          <li>
+            <h3>Portfolio Website</h3>
+            <p>Description of Project 1</p>
+            <a href="https://ferayguluzada.github.io/Web-Mobile/" target="_blank"  rel="noreferrer">
+              Link to Project
+            </a>
+          </li>
+          <li>
+            <h3>Project 2</h3>
+            <p>Description of Project 2</p>
+            <a href="https://ferayguluzada.github.io/Fetch-API/" target="_blank"  rel="noreferrer" >
+              Link to Project
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   );
-}
+};
 
+const App = () => {
+  return (
+    <div>
+      
+      <HomePage />
+    </div>
+  );
+};
 
 export default App;

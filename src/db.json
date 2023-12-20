@@ -1,75 +1,80 @@
 {
-    "cards": [
-      {
-        "id": 1,
-        "front": "What is the capital of France?",
-        "back": "Paris",
-        "lastModified": "2023-12-19T08:00:00Z",
-        "status": "Learned"
-      },
-      {
-        "id": 2,
-        "front": "Who painted the Mona Lisa?",
-        "back": "Leonardo da Vinci",
-        "lastModified": "2023-12-18T10:30:00Z",
-        "status": "Want to Learn"
-      },
-      {
-        "id": 3,
-        "front": "What is the largest planet in our solar system?",
-        "back": "Jupiter",
-        "lastModified": "2023-12-17T09:45:00Z",
-        "status": "Learned"
-      },
-      {
-        "id": 4,
-        "front": "Who wrote 'To Kill a Mockingbird'?",
-        "back": "Harper Lee",
-        "lastModified": "2023-12-16T11:20:00Z",
-        "status": "Noted"
-      },
-      {
-        "id": 5,
-        "front": "What is the chemical symbol for gold?",
-        "back": "Au",
-        "lastModified": "2023-12-15T14:10:00Z",
-        "status": "Want to Learn"
-      },
-      {
-        "id": 6,
-        "front": "In which year did World War I begin?",
-        "back": "1914",
-        "lastModified": "2023-12-14T13:25:00Z",
-        "status": "Learned"
-      },
-      {
-        "id": 7,
-        "front": "Who discovered penicillin?",
-        "back": "Alexander Fleming",
-        "lastModified": "2023-12-13T17:50:00Z",
-        "status": "Noted"
-      },
-      {
-        "id": 8,
-        "front": "What is the capital of Japan?",
-        "back": "Tokyo",
-        "lastModified": "2023-12-12T18:15:00Z",
-        "status": "Want to Learn"
-      },
-      {
-        "id": 9,
-        "front": "Who is known as the 'Father of Computer Science'?",
-        "back": "Alan Turing",
-        "lastModified": "2023-12-11T20:30:00Z",
-        "status": "Learned"
-      },
-      {
-        "id": 10,
-        "front": "What is the powerhouse of the cell?",
-        "back": "Mitochondria",
-        "lastModified": "2023-12-10T21:05:00Z",
-        "status": "Noted"
-      }
-    ]
-  }
-  
+  "cards": [
+    {
+      "front": "What is the capital of France?",
+      "back": "Paris",
+      "lastModified": "2023-12-19T08:00:00Z",
+      "status": "Learned",
+      "id": 1
+    },
+    {
+      "front": "Who painted the Mona Lisa?",
+      "back": "Leonardo da Vinci",
+      "lastModified": "2023-12-18T10:30:00Z",
+      "status": "Want to Learn",
+      "id": 2
+    },
+    {
+      "front": "What is the largest planet in our solar system?",
+      "back": "Jupiter",
+      "lastModified": "2023-12-17T09:45:00Z",
+      "status": "Learned",
+      "id": 3
+    },
+    {
+      "front": "Who wrote 'To Kill a Mockingbird'?",
+      "back": "Harper Lee",
+      "lastModified": "2023-12-16T11:20:00Z",
+      "status": "Noted",
+      "id": 4
+    },
+    {
+      "front": "What is the chemical symbol for gold?",
+      "back": "Au",
+      "lastModified": "2023-12-15T14:10:00Z",
+      "status": "Want to Learn",
+      "id": 5
+    },
+    {
+      "front": "In which year did World War I begin?",
+      "back": "1914",
+      "lastModified": "2023-12-14T13:25:00Z",
+      "status": "Learned",
+      "id": 6
+    },
+    {
+      "front": "Who discovered penicillin?",
+      "back": "Alexander Fleming",
+      "lastModified": "2023-12-13T17:50:00Z",
+      "status": "Noted",
+      "id": 7
+    },
+    {
+      "front": "What is the capital of Japan?",
+      "back": "Tokyo",
+      "lastModified": "2023-12-12T18:15:00Z",
+      "status": "Want to Learn",
+      "id": 8
+    },
+    {
+      "front": "Who is known as the 'Father of Computer Science'?",
+      "back": "Alan Turing",
+      "lastModified": "2023-12-11T20:30:00Z",
+      "status": "Learned",
+      "id": 9
+    },
+    {
+      "front": "What is the powerhouse of the cell?",
+      "back": "Mitochondria",
+      "lastModified": "2023-12-10T21:05:00Z",
+      "status": "Noted",
+      "id": 10
+    },
+    {
+      "front": "New Question",
+      "back": "New Answer",
+      "status": "Noted",
+      "id": 11
+    }
+  ]
+}
