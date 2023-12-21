@@ -4,7 +4,7 @@ import React from 'react';
 const HomePage = () => {
   return (
     <div>
-      <h1>Flashcards App</h1>
+      <h1>Flashcardsssss App</h1>
       <div>
         <h2>General Introduction</h2>
         <p>some info</p>
