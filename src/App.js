@@ -1,6 +1,19 @@
 import './App.css';
 import React from 'react';
 
+const FlashcardsPage = () => {
+  return (
+    <div>
+      <h1>Flashcards</h1>
+      <div>
+        <h3>Front of Flashcard</h3>
+        <p>Back of Flashcard</p>
+      </div>
+    </div>
+  );
+};
+
+//Spent hours on fixing react errors that were caused by bootstrap, finally fixed them and added some basics
 const HomePage = () => {
   return (
     <div>
