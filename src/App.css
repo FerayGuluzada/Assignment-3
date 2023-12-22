@@ -1,38 +1,76 @@
-.App {
+.HomePage {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.HomePage h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.HomePage h2 {
+  font-size: 1.8em;
+  margin-top: 30px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+
+.HomePage p {
+  font-size: 1.2em;
+}
+
+
+.HomePage ul {
+  list-style: none;
+  padding: 0;
+}
+
+
+.HomePage li {
+  margin-top: 20px;
+}
+
+
+.HomePage li h3 {
+  font-size: 1.5em;
+}
+
+
+.HomePage a {
+  color: #007bff; 
+  text-decoration: none;
+}
+
+
+.HomePage a:hover {
+  color: #0056b3;
+}
+
+
+.Navbar {
+  background-color: #333;
   color: white;
+  padding: 15px 0;
 }
 
-.App-link {
+.NavList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.NavList li {
+  margin: 0 10px;
+}
+
+.NavList li a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.NavList li a:hover {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

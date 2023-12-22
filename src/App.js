@@ -4,20 +4,23 @@ import React from 'react';
 const FlashcardsPage = () => {
   return (
     <div>
-      <h1>Flashcards</h1>
-      <div>
         <h3>Front of Flashcard</h3>
         <p>Back of Flashcard</p>
-      </div>
     </div>
   );
 };
 
-//Spent hours on fixing react errors that were caused by bootstrap, finally fixed them and added some basics
+
 const HomePage = () => {
   return (
-    <div>
-      <h1>Flashcardsssss App</h1>
+    <div className='HomePage'>
+      <nav className="Navbar">
+        <ul className="NavList">
+          <li><a href="">Home</a></li>
+          <li><a href="">Flashcards</a></li>
+          <li><a href="">Contacts</a></li>
+        </ul>
+      </nav>
       <div>
         <h2>General Introduction</h2>
         <p>some info</p>
