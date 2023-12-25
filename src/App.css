@@ -1,52 +1,74 @@
+/* Home Page*/
 .HomePage {
   text-align: center;
 }
-
 
 .HomePage h1 {
   font-size: 2.5em;
   margin-bottom: 20px;
 }
 
-
 .HomePage h2 {
   font-size: 1.8em;
   margin-top: 30px;
 }
 
-
 .HomePage p {
   font-size: 1.2em;
 }
-
 
 .HomePage ul {
   list-style: none;
   padding: 0;
 }
 
-
 .HomePage li {
   margin-top: 20px;
 }
 
-
-.HomePage li h3 {
-  font-size: 1.5em;
+/* Project */
+.HomePage .project {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
 }
 
+.HomePage .project:hover {
+  transform: scale(1.05);
+}
 
-.HomePage a {
-  color: #007bff; 
+.HomePage .project .projectLink {
   text-decoration: none;
+  color: inherit;
+}
+
+.HomePage .projectLink:hover .projectContent {
+  background-color: #f0f0f0;
+}
+
+.HomePage .projectContent {
+  transition: background-color 0.3s ease;
+}
+
+.HomePage .projectContent h3 {
+  font-size: 1.5em;
+  margin-bottom: 5px;
+}
+
+.HomePage .projectContent p {
+  font-size: 1.2em;
+  color: #555;
+}
+
+/* Styles for links */
+.HomePage a {
+  text-decoration: none;
+  color: darkgrey;
 }
 
 
-.HomePage a:hover {
-  color: #0056b3;
-}
-
-
+/* Navbar */
 .Navbar {
   background-color: #333;
   color: white;

@@ -7,8 +7,8 @@ import FlashcardsPage from './AFlashcards';
 const App = () => {
   return (
     <div>
-      <FlashcardsPage />
-      {/* <HomePage /> */}
+      {/* <FlashcardsPage /> */}
+      <HomePage />
     </div>
   );
 };
