@@ -1,4 +1,5 @@
 import './App.css';
+import './Home.css';
 import React from 'react';
 import HomePage from './AHomePage';
 import FlashcardsPage from './AFlashcards';
