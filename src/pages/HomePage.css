@@ -67,32 +67,3 @@
   }
   
   
-  /* Navbar */
-  .Navbar {
-    background-color: #333;
-    color: white;
-    padding: 15px 0;
-  }
-  
-  .NavList {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .NavList li {
-    margin: 0 10px;
-  }
-  
-  .NavList li a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-  }
-  
-  .NavList li a:hover {
-    color: #61dafb;
-  }
-  
