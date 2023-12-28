@@ -1,5 +1,5 @@
 import React from 'react';
-import './AFlashcardsPage.css'; 
+import './Flashcards.css'; 
 
 const FlashcardsPage = () => {
   return (
