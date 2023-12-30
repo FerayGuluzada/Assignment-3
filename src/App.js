@@ -3,6 +3,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import FlashcardsPage from './pages/Flashcards';
+import Contacts from './pages/Contacts';
 
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/flashcards" element={<FlashcardsPage />} />
+          <Route path="/contacts" element={<Contacts />} />
         </Routes>
       </div>
     </BrowserRouter>
