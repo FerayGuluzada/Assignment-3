@@ -14,4 +14,5 @@ const FlashcardsPage = () => {
   );
 };
 
+//database to be imported next, have some ideas after research
 export default FlashcardsPage;

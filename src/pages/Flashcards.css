@@ -1,4 +1,14 @@
+.flashcard-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; /*space-between*/
+}
+
 .flashcard {
+    width: 250px;
+    height: 300px;
+    perspective: 1000px;
+    margin: 20px;
     width: 250px;
     height: 300px;
     border-radius: 8px;
@@ -20,12 +30,12 @@
   }
   
   .front {
-    background-color: #f6c7b3;
+    background-color: #909090;
     transform: rotateY(0deg);
   }
   
   .back {
-    background-color: #f8dbb8;
+    background-color: #b4b4b4;
     transform: rotateY(180deg);
   }
   
