@@ -98,3 +98,11 @@
 .flashcard:hover .delete-btn {
   display: block;
 }
+
+.card-details {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 0.8rem;
+  color: #555;
+}

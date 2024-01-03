@@ -20,13 +20,14 @@ const FlashcardsPage = () => {
           id: questionItem.id,
           question: questionItem.front,
           answer: questionItem.back,
+          status: questionItem.status || 'Want to Learn', 
+          lastModified: questionItem.lastModified || '-', 
         })));
       })
       .catch((error) => {
         console.error('Error:', error);
       });
   };
-
 
   const addCard = () => {
     if (newQuestion && newAnswer) {
@@ -85,21 +86,25 @@ const FlashcardsPage = () => {
         <button onClick={addCard}>Add Card</button>
       </div>
       <div className="flashcard-container">
-        {flashcards.map((flashcard) => (
-          <div
-            key={flashcard.id}
-            className={`flashcard ${flippedCard === flashcard.id ? 'flipped' : ''}`}
-            onClick={() => handleCardClick(flashcard.id)}
-          >
-            <div className="front">
-              <button className="delete-btn" onClick={(e) => deleteCard(flashcard.id, e)}>Delete</button>
-              <h3>{flashcard.question}</h3>
-            </div>
-            <div className="back">
-              <p>Answer: {flashcard.answer}</p>
-            </div>
-          </div>
-        ))}
+      {flashcards.map((flashcard) => (
+  <div
+    key={flashcard.id}
+    className={`flashcard ${flippedCard === flashcard.id ? 'flipped' : ''}`}
+    onClick={() => handleCardClick(flashcard.id)}
+  >
+    <div className="front">
+  <button className="delete-btn" onClick={(e) => deleteCard(flashcard.id, e)}>Delete</button>
+  <h3>{flashcard.question}</h3>
+  <div className="card-details">
+    <p>Status: {flashcard.status}</p>
+    <p>Last Modified: {flashcard.lastModified}</p>
+  </div>
+</div>
+    <div className="back">
+      <p>Answer: {flashcard.answer}</p>
+    </div>
+  </div>
+))}
       </div>
     </div>
   );
