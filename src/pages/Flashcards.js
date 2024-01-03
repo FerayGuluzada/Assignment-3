@@ -63,7 +63,12 @@ const FlashcardsPage = () => {
           value={newQuestion}
           onChange={(e) => setNewQuestion(e.target.value)}
         />
-        
+        <input
+          type="text"
+          placeholder="Answer"
+          value={newAnswer}
+          onChange={(e) => setNewAnswer(e.target.value)}
+        />
         <button onClick={addCard}>Add Card</button>
       </div>
       {flashcards.map((flashcard) => (
