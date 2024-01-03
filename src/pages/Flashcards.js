@@ -51,7 +51,7 @@ const FlashcardsPage = () => {
   };
 
   const deleteCard = (id, e) => {
-    e.stopPropagation(); // Stops the click event from propagating to the card
+    e.stopPropagation(); 
   
     axios
       .delete(`http://localhost:3001/cards/${id}`)
