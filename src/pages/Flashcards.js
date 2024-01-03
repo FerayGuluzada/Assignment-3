@@ -17,7 +17,7 @@ const FlashcardsPage = () => {
       .get('http://localhost:3001/cards')
       .then((res) => {
         const transformedData = res.data.map((questionItem, index) => ({
-          id: `${index}-${Date.now()}`,
+          id: `${index}`,
           question: questionItem.front,
           answer: questionItem.back,
         }));
