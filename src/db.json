@@ -1,77 +1,42 @@
 {
   "cards": [
     {
-      "front": "What is the capital of France?",
-      "back": "Paris",
-      "lastModified": "2023-12-19T08:00:00Z",
-      "status": "Learned",
-      "id": 0
-    },
-    {
-      "front": "Who painted the Mona Lisa?",
-      "back": "Leonardo da Vinci",
-      "lastModified": "2023-12-18T10:30:00Z",
-      "status": "Want to Learn",
-      "id": 1
-    },
-    {
-      "front": "What is the largest planet in our solar system?",
-      "back": "Jupiter",
-      "lastModified": "2023-12-17T09:45:00Z",
-      "status": "Learned",
-      "id": 2
-    },
-    {
-      "front": "Who wrote 'To Kill a Mockingbird'?",
-      "back": "Harper Lee",
-      "lastModified": "2023-12-16T11:20:00Z",
-      "status": "Noted",
-      "id": 3
-    },
-    {
-      "front": "What is the chemical symbol for gold?",
-      "back": "Au",
-      "lastModified": "2023-12-15T14:10:00Z",
-      "status": "Want to Learn",
-      "id": 4
-    },
-    {
-      "front": "In which year did World War I begin?",
-      "back": "1914",
-      "lastModified": "2023-12-14T13:25:00Z",
-      "status": "Learned",
-      "id": 5
-    },
-    {
       "front": "Who discovered penicillin?",
       "back": "Alexander Fleming",
       "lastModified": "2023-12-13T17:50:00Z",
       "status": "Noted",
-      "id": 6
+      "id": 4
     },
     {
       "front": "Which country is the producer of Ferrari",
       "back": "Italy",
-      "id": 7
+      "id": 5
     },
     {
       "front": "Who developed the theory of relativity?",
       "back": "Albert Einstein",
-      "id": 8
+      "id": 6
     },
     {
       "front": "Who is known as the 'Father of Computer Science'?",
       "back": "Alan Turing",
       "lastModified": "2023-12-09T19:20:00Z",
       "status": "Want to Learn",
-      "id": 9
+      "id": 7
     },
     {
-      "front": "What is the powerhouse of the cell?",
-      "back": "Mitochondria",
-      "lastModified": "2023-12-08T22:15:00Z",
-      "status": "Learned",
-      "id": 10
+      "front": "Who is known as the 'Father of Computer Science' TO DELETE?",
+      "back": "Alan Turing",
+      "lastModified": "2023-12-09T19:20:00Z",
+      "status": "Want to Learn",
+      "id": 8
+    },
+    {
+      "front": "Who is known as the 'Mother of Computer Science'?",
+      "back": "Ada Lovelace",
+      "lastModified": "2023-12-09T19:20:00Z",
+      "status": "Want to Learn",
+      "id": 9
     },
     {
       "front": "What is the capital of Russia?",

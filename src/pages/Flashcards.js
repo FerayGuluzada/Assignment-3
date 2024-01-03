@@ -16,17 +16,17 @@ const FlashcardsPage = () => {
     axios
       .get('http://localhost:3001/cards')
       .then((res) => {
-        const transformedData = res.data.map((questionItem, index) => ({
-          id: `${index}`,
+        setFlashcards(res.data.map((questionItem) => ({
+          id: questionItem.id,
           question: questionItem.front,
           answer: questionItem.back,
-        }));
-        setFlashcards(transformedData);
+        })));
       })
       .catch((error) => {
         console.error('Error:', error);
       });
   };
+
 
   const addCard = () => {
     if (newQuestion && newAnswer) {
@@ -92,11 +92,11 @@ const FlashcardsPage = () => {
             onClick={() => handleCardClick(flashcard.id)}
           >
             <div className="front">
+              <button className="delete-btn" onClick={(e) => deleteCard(flashcard.id, e)}>Delete</button>
               <h3>{flashcard.question}</h3>
             </div>
             <div className="back">
               <p>Answer: {flashcard.answer}</p>
-              <button onClick={(e) => deleteCard(flashcard.id, e)}>Delete</button>
             </div>
           </div>
         ))}
