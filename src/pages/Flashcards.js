@@ -6,14 +6,13 @@ const FlashcardsPage = () => {
   const [flashcards, setFlashcards] = useState([]);
   const [newQuestion, setNewQuestion] = useState('');
   const [newAnswer, setNewAnswer] = useState('');
+  const [flippedCard, setFlippedCard] = useState(null);
 
-  useEffect(() => 
-  {
+  useEffect(() => {
     fetchData();
   }, []);
 
-  const fetchData = () => 
-  {
+  const fetchData = () => {
     axios
       .get('http://localhost:3001/cards')
       .then((res) => {
@@ -29,12 +28,9 @@ const FlashcardsPage = () => {
       });
   };
 
-  const addCard = () => 
-  {
-    if (newQuestion && newAnswer) 
-    {
-      const newCard = 
-      {
+  const addCard = () => {
+    if (newQuestion && newAnswer) {
+      const newCard = {
         front: newQuestion,
         back: newAnswer,
       };
@@ -54,8 +50,25 @@ const FlashcardsPage = () => {
     }
   };
 
+  const deleteCard = (id, e) => {
+    e.stopPropagation(); // Stops the click event from propagating to the card
+  
+    axios
+      .delete(`http://localhost:3001/cards/${id}`)
+      .then((res) => {
+        fetchData();
+      })
+      .catch((error) => {
+        console.error('Error deleting card:', error);
+      });
+  };
+
+  const handleCardClick = (id) => {
+    setFlippedCard(id === flippedCard ? null : id);
+  };
+
   return (
-    <div className="flashcard-container">
+    <div>
       <div className="flashcard-form">
         <input
           type="text"
@@ -71,16 +84,23 @@ const FlashcardsPage = () => {
         />
         <button onClick={addCard}>Add Card</button>
       </div>
-      {flashcards.map((flashcard) => (
-        <div key={flashcard.id} className="flashcard">
-          <div className="front">
-            <h3>{flashcard.question}</h3>
+      <div className="flashcard-container">
+        {flashcards.map((flashcard) => (
+          <div
+            key={flashcard.id}
+            className={`flashcard ${flippedCard === flashcard.id ? 'flipped' : ''}`}
+            onClick={() => handleCardClick(flashcard.id)}
+          >
+            <div className="front">
+              <h3>{flashcard.question}</h3>
+            </div>
+            <div className="back">
+              <p>Answer: {flashcard.answer}</p>
+              <button onClick={(e) => deleteCard(flashcard.id, e)}>Delete</button>
+            </div>
           </div>
-          <div className="back">
-            <p>Answer: {flashcard.answer}</p>
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };
