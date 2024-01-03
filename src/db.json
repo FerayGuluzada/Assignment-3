@@ -3,8 +3,6 @@
     {
       "front": "Who discovered penicillin?",
       "back": "Alexander Fleming",
-      "lastModified": "2023-12-13T17:50:00Z",
-      "status": "Noted",
       "id": 4
     },
     {
@@ -13,13 +11,6 @@
       "lastModified": "2023-12-09T19:20:00Z",
       "status": "Want to Learn",
       "id": 7
-    },
-    {
-      "front": "Who is known as the 'Father of Computer Science' TO DELETE?",
-      "back": "Alan Turing",
-      "lastModified": "2023-12-09T19:20:00Z",
-      "status": "Want to Learn",
-      "id": 8
     },
     {
       "front": "Who is known as the 'Mother of Computer Science'?",
