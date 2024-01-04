@@ -110,8 +110,7 @@ const FlashcardsPage = () => {
     }
   };
 
-  const deleteCard = (id, e) => {
-    e.stopPropagation();
+  const deleteCard = (id) => {
 
     axios
       .delete(`http://localhost:3001/cards/${id}`)
@@ -257,7 +256,7 @@ const FlashcardsPage = () => {
             <div className="front">
               <button
                 className="delete-btn"
-                onClick={(e) => deleteCard(flashcard.id, e)}
+                onClick={() => deleteCard(flashcard.id)}
               >
                 Delete
               </button>
