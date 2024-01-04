@@ -7,8 +7,16 @@ const FlashcardsPage = () => {
   const [newQuestion, setNewQuestion] = useState('');
   const [newAnswer, setNewAnswer] = useState('');
   const [flippedCard, setFlippedCard] = useState(null);
-  const [editMode, setEditMode] = useState(false); 
-  const [editContent, setEditContent] = useState({ id: null, question: '', answer: '' });
+  const [editMode, setEditMode] = useState(false);
+  const statusOptions = ['Want to Learn', 'Noted', 'Learned'];
+
+  const [editContent, setEditContent] = useState({
+    id: null,
+    question: '',
+    answer: '',
+    status: 'Want to Learn',
+    lastModified: '',
+  });
 
   useEffect(() => {
     fetchData();
@@ -18,13 +26,15 @@ const FlashcardsPage = () => {
     axios
       .get('http://localhost:3001/cards')
       .then((res) => {
-        setFlashcards(res.data.map((questionItem) => ({
-          id: questionItem.id,
-          question: questionItem.front,
-          answer: questionItem.back,
-          status: questionItem.status || 'Want to Learn', 
-          lastModified: questionItem.lastModified || '-', 
-        })));
+        setFlashcards(
+          res.data.map((questionItem) => ({
+            id: questionItem.id,
+            question: questionItem.front,
+            answer: questionItem.back,
+            status: questionItem.status || 'Want to Learn',
+            lastModified: questionItem.lastModified || '-',
+          }))
+        );
       })
       .catch((error) => {
         console.error('Error:', error);
@@ -40,7 +50,7 @@ const FlashcardsPage = () => {
         status: 'Want to Learn', 
         lastModified: timestamp, 
       };
-  
+
       axios
         .post('http://localhost:3001/cards', newCard)
         .then((res) => {
@@ -57,8 +67,8 @@ const FlashcardsPage = () => {
   };
 
   const deleteCard = (id, e) => {
-    e.stopPropagation(); 
-  
+    e.stopPropagation();
+
     axios
       .delete(`http://localhost:3001/cards/${id}`)
       .then((res) => {
@@ -87,12 +97,12 @@ const FlashcardsPage = () => {
           front: editContent.question,
           back: editContent.answer,
           status: editContent.status,
-          lastModified: timestamp, 
+          lastModified: timestamp,
         })
         .then((res) => {
           setEditMode(false);
           fetchData();
-          setEditContent({ id: null, question: '', answer: '' });
+          setEditContent({ id: null, question: '', answer: '', status: '', lastModified: '' });
         })
         .catch((error) => {
           console.error('Error updating card:', error);
@@ -101,11 +111,10 @@ const FlashcardsPage = () => {
       alert('Fill in both question and answer fields.');
     }
   };
-  
 
   const cancelEdit = () => {
     setEditMode(false);
-    setEditContent({ id: null, question: '', answer: '' });
+    setEditContent({ id: null, question: '', answer: '', status: '', lastModified: '' });
   };
 
   return (
@@ -143,6 +152,18 @@ const FlashcardsPage = () => {
                 setEditContent({ ...editContent, answer: e.target.value })
               }
             />
+            <select
+              value={editContent.status}
+              onChange={(e) =>
+                setEditContent({ ...editContent, status: e.target.value })
+              }
+            >
+              {statusOptions.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
             <button onClick={saveEdit}>Save</button>
             <button onClick={cancelEdit}>Cancel</button>
           </>
@@ -168,7 +189,11 @@ const FlashcardsPage = () => {
                 <button
                   className="edit-btn"
                   onClick={() =>
-                    toggleEditMode(flashcard.id, flashcard.question, flashcard.answer)
+                    toggleEditMode(
+                      flashcard.id,
+                      flashcard.question,
+                      flashcard.answer
+                    )
                   }
                 >
                   Edit
