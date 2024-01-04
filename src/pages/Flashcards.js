@@ -12,6 +12,8 @@ const FlashcardsPage = () => {
   const [filterStatus, setFilterStatus] = useState('All');
   const [sortOption, setSortOption] = useState('Last Modified');
   const sortOptions = ['Last Modified', 'ID'];
+  const [searchText, setSearchText] = useState('');
+
 
 
 
@@ -65,12 +67,24 @@ const FlashcardsPage = () => {
   };
 
   const filteredFlashcards = flashcards.filter((flashcard) => {
+    const searchTextLower = searchText.toLowerCase();
+    const questionLower = flashcard.question.toLowerCase();
+    const answerLower = flashcard.answer.toLowerCase();
+  
     if (filterStatus === 'All') {
-      return true;
+      return (
+        questionLower.includes(searchTextLower) ||
+        answerLower.includes(searchTextLower)
+      );
     } else {
-      return flashcard.status === filterStatus;
+      return (
+        flashcard.status === filterStatus &&
+        (questionLower.includes(searchTextLower) ||
+          answerLower.includes(searchTextLower))
+      );
     }
   });
+  
 
   const addCard = () => {
     if (newQuestion && newAnswer) {
@@ -200,7 +214,15 @@ const FlashcardsPage = () => {
           </>
         )}
       </div>
-      
+      <div>
+  <label className='search'>Search Cards: </label>
+  <input
+    type="text"
+    value={searchText}
+    onChange={(e) => setSearchText(e.target.value)}
+    placeholder="Search by text..."
+  />
+</div>
       <div>
         <label className = "filter">Filter by Status: </label>
         <select onChange={handleFilterChange} value={filterStatus}>
