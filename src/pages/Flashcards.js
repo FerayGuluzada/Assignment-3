@@ -33,11 +33,14 @@ const FlashcardsPage = () => {
 
   const addCard = () => {
     if (newQuestion && newAnswer) {
+      const timestamp = new Date().toLocaleString(); 
       const newCard = {
         front: newQuestion,
         back: newAnswer,
+        status: 'Want to Learn', 
+        lastModified: timestamp, 
       };
-
+  
       axios
         .post('http://localhost:3001/cards', newCard)
         .then((res) => {
@@ -72,15 +75,19 @@ const FlashcardsPage = () => {
 
   const toggleEditMode = (id, question, answer) => {
     setEditMode(true);
-    setEditContent({ id, question, answer });
+    const timestamp = new Date().toLocaleString();
+    setEditContent({ id, question, answer, lastModified: timestamp });
   };
 
   const saveEdit = () => {
     if (editContent.question && editContent.answer) {
+      const timestamp = new Date().toLocaleString(); 
       axios
         .put(`http://localhost:3001/cards/${editContent.id}`, {
           front: editContent.question,
           back: editContent.answer,
+          status: editContent.status,
+          lastModified: timestamp, 
         })
         .then((res) => {
           setEditMode(false);
@@ -94,6 +101,7 @@ const FlashcardsPage = () => {
       alert('Fill in both question and answer fields.');
     }
   };
+  
 
   const cancelEdit = () => {
     setEditMode(false);
