@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './Contacts.css'; // Import your CSS file
+import './Contacts.css'; 
 
 const Contact = () => {
   const [subject, setSubject] = useState('');
@@ -20,11 +20,9 @@ const Contact = () => {
       .post('http://localhost:3001/messages', newMessage)
       .then((res) => {
         console.log('Message sent:', res.data);
-        // Optionally, you can show a success message or perform other actions upon successful submission
       })
       .catch((error) => {
         console.error('Error sending message:', error);
-        // Handle error, show error message, etc.
       });
   };
 
