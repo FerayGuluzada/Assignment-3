@@ -133,13 +133,14 @@
 }
 
 .filter {
-  margin-left: 35px;
+  margin-top: 35px;
+}
+
+
+.search{
+  margin-top: 35px;
 }
 
 .sort{
-  margin-left: 35px;
-}
-
-.search{
-  margin-left: 35px;
+  margin-top: 35px;
 }
