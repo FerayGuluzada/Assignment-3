@@ -9,6 +9,8 @@ const FlashcardsPage = () => {
   const [flippedCard, setFlippedCard] = useState(null);
   const [editMode, setEditMode] = useState(false);
   const statusOptions = ['Want to Learn', 'Noted', 'Learned'];
+  const [filterStatus, setFilterStatus] = useState('All');
+
 
   const [editContent, setEditContent] = useState({
     id: null,
@@ -22,24 +24,42 @@ const FlashcardsPage = () => {
     fetchData();
   }, []);
 
-  const fetchData = () => {
+   const fetchData = () => {
     axios
       .get('http://localhost:3001/cards')
       .then((res) => {
-        setFlashcards(
-          res.data.map((questionItem) => ({
+        const sortedFlashcards = res.data
+          .map((questionItem) => ({
             id: questionItem.id,
             question: questionItem.front,
             answer: questionItem.back,
             status: questionItem.status || 'Want to Learn',
             lastModified: questionItem.lastModified || '-',
           }))
-        );
+          .sort((a, b) => {
+            const dateA = new Date(a.lastModified).getTime();
+            const dateB = new Date(b.lastModified).getTime();
+            return dateB - dateA;
+          });
+
+        setFlashcards(sortedFlashcards);
       })
       .catch((error) => {
         console.error('Error:', error);
       });
   };
+
+  const handleFilterChange = (e) => {
+    setFilterStatus(e.target.value);
+  };
+
+  const filteredFlashcards = flashcards.filter((flashcard) => {
+    if (filterStatus === 'All') {
+      return true;
+    } else {
+      return flashcard.status === filterStatus;
+    }
+  });
 
   const addCard = () => {
     if (newQuestion && newAnswer) {
@@ -169,8 +189,18 @@ const FlashcardsPage = () => {
           </>
         )}
       </div>
+      <div>
+        <label className = "filter">Filter by Status:</label>
+        <select onChange={handleFilterChange} value={filterStatus}>
+          {statusOptions.map((option) => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
+      </div>
       <div className="flashcard-container">
-        {flashcards.map((flashcard) => (
+      {filteredFlashcards.map((flashcard) => (
           <div
             key={flashcard.id}
             className={`flashcard ${

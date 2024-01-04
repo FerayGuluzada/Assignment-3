@@ -131,3 +131,7 @@
 .flashcard:hover .edit-btn {
   display: block;
 }
+
+.filter {
+  margin-left: 35px;
+}
