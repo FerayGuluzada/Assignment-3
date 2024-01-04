@@ -10,6 +10,9 @@ const FlashcardsPage = () => {
   const [editMode, setEditMode] = useState(false);
   const statusOptions = ['Want to Learn', 'Noted', 'Learned'];
   const [filterStatus, setFilterStatus] = useState('All');
+  const [sortOption, setSortOption] = useState('Last Modified');
+  const sortOptions = ['Last Modified', 'ID'];
+
 
 
   const [editContent, setEditContent] = useState({
@@ -22,26 +25,34 @@ const FlashcardsPage = () => {
 
   useEffect(() => {
     fetchData();
-  }, []);
-
-   const fetchData = () => {
+  }, [sortOption]);
+  
+  const sortFlashcards = (unsortedFlashcards) => {
+    if (sortOption === 'ID') {
+      return unsortedFlashcards.sort((a, b) => a.id - b.id);
+    } else if (sortOption === 'Last Modified') {
+      return unsortedFlashcards.sort((a, b) => {
+        const dateA = new Date(a.lastModified).getTime();
+        const dateB = new Date(b.lastModified).getTime();
+        return dateB - dateA;
+      });
+    }
+    return unsortedFlashcards;
+  };
+  
+  const fetchData = () => {
     axios
       .get('http://localhost:3001/cards')
       .then((res) => {
-        const sortedFlashcards = res.data
-          .map((questionItem) => ({
+        const sortedFlashcards = sortFlashcards(
+          res.data.map((questionItem) => ({
             id: questionItem.id,
             question: questionItem.front,
             answer: questionItem.back,
             status: questionItem.status || 'Want to Learn',
             lastModified: questionItem.lastModified || '-',
           }))
-          .sort((a, b) => {
-            const dateA = new Date(a.lastModified).getTime();
-            const dateB = new Date(b.lastModified).getTime();
-            return dateB - dateA;
-          });
-
+        );
         setFlashcards(sortedFlashcards);
       })
       .catch((error) => {
@@ -189,8 +200,9 @@ const FlashcardsPage = () => {
           </>
         )}
       </div>
+      
       <div>
-        <label className = "filter">Filter by Status:</label>
+        <label className = "filter">Filter by Status: </label>
         <select onChange={handleFilterChange} value={filterStatus}>
           {statusOptions.map((option) => (
             <option key={option} value={option}>
@@ -198,6 +210,17 @@ const FlashcardsPage = () => {
             </option>
           ))}
         </select>
+      </div>
+      <div className="sort">
+        
+      Sort: <select value={sortOption} onChange={(e) => setSortOption(e.target.value)}>
+  {sortOptions.map((option) => (
+    <option key={option} value={option}>
+      {option}
+    </option>
+  ))}
+</select>
+
       </div>
       <div className="flashcard-container">
       {filteredFlashcards.map((flashcard) => (
