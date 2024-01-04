@@ -6,7 +6,7 @@ const HomePage = () => {
     <div className='HomePage'>
       <div>
         <h2>General Introduction</h2>
-        <p>some info</p>
+        <p>Welcome to my third assignment💥</p>
       </div>
       <div>
         <h2>List of Projects</h2>
@@ -15,7 +15,7 @@ const HomePage = () => {
             <a href="https://ferayguluzada.github.io/Web-Mobile/" target="_blank" rel="noreferrer">
               <div className="projectContent">
                 <h3>Project 1</h3>
-                <p>Description of Project 1</p>
+                <p>Portfolio Website</p>
               </div>
             </a>
           </li>
@@ -23,7 +23,7 @@ const HomePage = () => {
             <a href="https://ferayguluzada.github.io/Fetch-API/" target="_blank" rel="noreferrer">
               <div className="projectContent">
                 <h3>Project 2</h3>
-                <p>Description of Project 2</p>
+                <p>Fetch-API Website</p>
               </div>
             </a>
           </li>

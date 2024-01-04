@@ -9,7 +9,7 @@ const FlashcardsPage = () => {
   const [flippedCard, setFlippedCard] = useState(null);
   const [editMode, setEditMode] = useState(false);
   const statusOptions = ['Want to Learn', 'Noted', 'Learned'];
-  const [filterStatus, setFilterStatus] = useState('All');
+  const [filterStatus, setFilterStatus] = useState('');
   const [sortOption, setSortOption] = useState('Last Modified');
   const sortOptions = ['Last Modified', 'ID'];
   const [searchText, setSearchText] = useState('');
@@ -71,7 +71,7 @@ const FlashcardsPage = () => {
     const questionLower = flashcard.question.toLowerCase();
     const answerLower = flashcard.answer.toLowerCase();
   
-    if (filterStatus === 'All') {
+    if (filterStatus === '' || filterStatus === '-') {
       return (
         questionLower.includes(searchTextLower) ||
         answerLower.includes(searchTextLower)
@@ -84,7 +84,6 @@ const FlashcardsPage = () => {
       );
     }
   });
-  
 
   const addCard = () => {
     if (newQuestion && newAnswer) {
@@ -226,12 +225,14 @@ const FlashcardsPage = () => {
       <div>
         <label className = "filter">Filter by Status: </label>
         <select onChange={handleFilterChange} value={filterStatus}>
-          {statusOptions.map((option) => (
-            <option key={option} value={option}>
-              {option}
-            </option>
-          ))}
-        </select>
+  <option value="">-</option>
+  {statusOptions.map((option) => (
+    <option key={option} value={option}>
+      {option}
+    </option>
+  ))}
+</select>
+
       </div>
       <div className="sort">
         
