@@ -44,7 +44,7 @@ const FlashcardsPage = () => {
   
   const fetchData = () => {
     axios
-      .get('http://localhost:3001/cards')
+      .get('http://localhost:3000/cards')
       .then((res) => {
         const sortedFlashcards = sortFlashcards(
           res.data.map((questionItem) => ({
@@ -96,7 +96,7 @@ const FlashcardsPage = () => {
       };
 
       axios
-        .post('http://localhost:3001/cards', newCard)
+        .post('http://localhost:3000/cards', newCard)
         .then((res) => {
           fetchData();
           setNewQuestion('');
@@ -113,7 +113,7 @@ const FlashcardsPage = () => {
   const deleteCard = (id) => {
 
     axios
-      .delete(`http://localhost:3001/cards/${id}`)
+      .delete(`http://localhost:3000/cards/${id}`)
       .then((res) => {
         fetchData();
       })
@@ -136,7 +136,7 @@ const FlashcardsPage = () => {
     if (editContent.question && editContent.answer) {
       const timestamp = new Date().toLocaleString(); 
       axios
-        .put(`http://localhost:3001/cards/${editContent.id}`, {
+        .put(`http://localhost:3000/cards/${editContent.id}`, {
           front: editContent.question,
           back: editContent.answer,
           status: editContent.status,
